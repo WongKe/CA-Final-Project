@@ -1,7 +1,7 @@
 //EECE3324
 //Computer Architecture
 //Final Project
-//Kevin Wong & Jonathan Marrero-Rosaly
+//Kevin Wong & Jonathan Marrero
 
 
 // Adds 4 to input
