@@ -7,7 +7,7 @@
 
 //Taken from HW6 Solutions
 
-module AluControl(ALUOPcode, ALUOP,FunctCode);
+module AluControlUnit(ALUOPcode, ALUOP,FunctCode);
 input [2:0] ALUOP;
 input [5:0] FunctCode;
 output reg [3:0] ALUOPcode;
