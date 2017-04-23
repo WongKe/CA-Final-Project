@@ -6,7 +6,7 @@
 // Module for Register File
 // Taken from HW6 Solutions
 
-module reg_file(readAddr1,readAddr2,writeAddr,writeData,writeEnable,clk,readData1,readData2,reset);
+module registerfile(readAddr1,readAddr2,writeAddr,writeData,writeEnable,clk,readData1,readData2,reset);
   input [4:0] readAddr1, readAddr2,writeAddr;
   input [31:0] writeData;
   input writeEnable, clk,reset;
