@@ -36,9 +36,9 @@ module CPU(clk, rst, rstPC);
   wire ALUSrc;
   wire RegWrite;
   wire addi;
-  wire HLT;
+
   
-  // Decode Instruction
+
   assign SL2input = Instruction[25:0];
   assign ctlInput = Instruction[31:26];
   assign ReadReg1 = Instruction[25:21];
@@ -50,24 +50,24 @@ module CPU(clk, rst, rstPC);
   assign PCmux1sel = Branch & Zero;
   
   // Connect Modules
-  ProgramCounter PC(PCin, clk, rstPC, PCout);
-  add4 Add4(PCout, PC4);
+  PCmodule PC(PCin, clk, rstPC, PCout);
+  Add4 Add4(PCout, PC4);
   ShiftLeft2PC slPC(SL2input, PC4, Jaddr);
-  mux2to1 PCMux1(PC4, PCaddOut, PCmux1sel, PCmux1out);
-  mux2to1 PCMux2(PCmux1out, Jaddr, Jump, PCin);
-  control_unit CtrlU(ctlInput, rst, RegDst, Jump, Branch, MemRead, MemtoReg, 
+  Mux2to1 PCMux1(PC4, PCaddOut, PCmux1sel, PCmux1out);
+  Mux2to1 PCMux2(PCmux1out, Jaddr, Jump, PCin);
+  ControlUnit CtrlU(ctlInput, rst, RegDst, Jump, Branch, MemRead, MemtoReg, 
                      MemWrite, ALUSrc, RegWrite, ALUOp, addi, HLT);
   SignExtend SE(SignExIn, SignExOut);
   ShiftLeft2 SL2(SignExOut, SL2out);
-  mux2to1_5bit MX0(ReadReg2, WrRMuxIn, RegDst, Reg_Write_reg);
+  Mux2to1FiveBit MX0(ReadReg2, WrRMuxIn, RegDst, Reg_Write_reg);
   registerfile Registers(ReadReg1, ReadReg2, Reg_Write_reg, Reg_Write_Data, 
                          RegWrite, clk, rst, Reg_read_data1, Reg_read_data2);
-  ALU_control_unit ALUctrl(ALUOp, addi, ALUcntrl, ALUctrlop);
-  mux2to1 MX1(Reg_read_data2, SignExOut, ALUSrc, mux1out);
+  ALU_Control_Unit ALUctrl(ALUOp, addi, ALUcntrl, ALUctrlop);
+  Mux2to1 MX1(Reg_read_data2, SignExOut, ALUSrc, mux1out);
   ALU alu(ALUctrlop, Reg_read_data1, mux1out, ALUresult, Zero);
-  adder add(PC4, SL2out, PCaddOut);
+  Adder add(PC4, SL2out, PCaddOut);
   Memory MEM(PCout, Instruction, ALUresult, Reg_read_data2,
              MemRead, MemWrite, Mem_read_data);
-  mux2to1 MX2(ALUresult, Mem_read_data, MemtoReg, Reg_Write_Data);
+  Mux2to1 MX2(ALUresult, Mem_read_data, MemtoReg, Reg_Write_Data);
   
 endmodule
