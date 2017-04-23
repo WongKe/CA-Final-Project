@@ -132,11 +132,7 @@ Aluop[1]=1;
 Aluop[2]=1;
 MemReg=0;
 end
-
-6'b111111: 
-begin //HLT
-HLT = 1;
-end     
+   
 endcase
 
 end
