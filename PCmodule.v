@@ -6,7 +6,7 @@
 
 // Module for Program Counter file
 
-module PC(input1, clk, resetPC, out1);
+module PCmodule(input1, clk, resetPC, out1);
   
   input [31:0] input1;
   input clk, resetPC;
