@@ -7,7 +7,7 @@
 
 `timescale 1ns / 1ns
 
-module Mux2to1_5bit(input0, input1, select, out);
+module Mux2to1FiveBit(input0, input1, select, out);
   
   input [4:0] input0, input1;	// input 1 & 2
   input select;            	// bit for select
