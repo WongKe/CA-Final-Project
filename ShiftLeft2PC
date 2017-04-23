@@ -4,6 +4,10 @@
 // Kevin Wong & Jonathan Marrero
 
 // Shift Left 2 module (PC Loop)
+//
+// Calculates jump target address:  
+//   shift lower 26 bits of jump instruction left 2 bits
+//   concatenate upper 4 bits of PC+4 as high-order bits
 
 `timescale 1ns/1ns
 
