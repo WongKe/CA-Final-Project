@@ -7,7 +7,7 @@
 
 //Taken from HW6 Solutions
 
-module control_unit(RegDst,Jump,Branch,MemRead,MemReg,MemWrite,AlUsrc,RegWrite,Aluop, opCode);
+module ControlUnit(RegDst,Jump,Branch,MemRead,MemReg,MemWrite,AlUsrc,RegWrite,Aluop, opCode);
 output reg RegDst,Jump,Branch,MemRead,MemWrite,AlUsrc,RegWrite, MemReg;
 output reg [2:0] Aluop;
 input [5:0] opCode;
