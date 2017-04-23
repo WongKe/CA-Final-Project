@@ -1,13 +1,14 @@
-// EECE3324 Computer Architecture
-// Basic Project
-// Tim Liming & Wing Tung Yuen
+// EECE3324
+// Computer Architecture
+// Final Project
+// Kevin Wong & Jonathan Marrero
 
 // The ALU control unit that takes the ALUop and 6-bit function code in 
 // Generates 4-bit ALU_operation signal for the ALU. 
 
 `timescale 1ns / 1ns
 
-module ALU_control_unit(ALUop, addi, function, ALUoperation);
+module ALU_control_unit(ALUop, addi, func, ALUoperation);
   
   input [1:0] ALUop;
   input addi;
