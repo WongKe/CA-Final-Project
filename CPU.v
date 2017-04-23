@@ -62,7 +62,7 @@ module CPU(clk, rst, rstPC);
   Mux2to1FiveBit MX0(ReadReg2, WrRMuxIn, RegDst, Reg_Write_reg);
   registerfile Registers(ReadReg1, ReadReg2, Reg_Write_reg, Reg_Write_Data, 
                          RegWrite, clk, rst, Reg_read_data1, Reg_read_data2);
-  ALU_Control_Unit ALUctrl(ALUOp, addi, ALUcntrl, ALUctrlop);
+  ALUControlUnit ALUctrl(ALUOp, addi, ALUcntrl, ALUctrlop);
   Mux2to1 MX1(Reg_read_data2, SignExOut, ALUSrc, mux1out);
   ALU alu(ALUctrlop, Reg_read_data1, mux1out, ALUresult, Zero);
   Adder add(PC4, SL2out, PCaddOut);
