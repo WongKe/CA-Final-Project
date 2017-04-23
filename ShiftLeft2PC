@@ -4,11 +4,6 @@
 // Kevin Wong & Jonathan Marrero
 
 // Shift Left 2 module (PC Loop)
-//
-// The jump target address is obtained by shifting the lower 
-// 26 bits of the jump instruction left 2 bits, and then 
-// concatenating the upper 4 bits of PC+4 as the high-order 
-// bits leading to a 32-bit address.
 
 `timescale 1ns/1ns
 
