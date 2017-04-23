@@ -1,8 +1,9 @@
-// EECE3324 Computer Architecture
-// Basic Project
-// Tim Liming & Wing Tung Yuen
+// EECE3324 
+// Computer Architecture
+// Final Project
+// Kevin Wong & Jonathan Marrero
 
-// Testbench: cpu
+// CPU TestBench module
 
 `timescale 1ns / 1ns
 
